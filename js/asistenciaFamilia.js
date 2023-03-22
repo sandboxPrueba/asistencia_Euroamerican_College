@@ -4,9 +4,11 @@ const urlReporte ='https://espartano.azurewebsites.net/ReporteAsistenciaFamilia'
 
 let rellenar = document.querySelector("#rellenar"); 
 let rellenar2 = document.querySelector("#rellenar2"); 
+let rellenar3 = document.querySelector("#rellenar3"); 
 
 var nombreAlumno;
 var cantidadResultados;
+var total;
 
 var input = document.getElementById("nombreAlumno");
 
@@ -71,12 +73,16 @@ function regresar(){
 async function obtenerDatos(){
     await fetch(urlReporte)
         .then(response => response.json())
-        .then(json=>{imprimir(json.data),
+        .then(json=>{
+            imprimir(json.data),
             cantidadResultados=(json.mensaje);
+            total=(json.total);
+            console.log(total);
         });
     if(cantidadResultados =="Se encontraron 0 resultado(s)."){
         alert("No se encontraron resultados")
     }
+    rellenar3.innerHTML = ` <h1>Total ${total}</h1>`
 }
 
 let imprimir = (array)=>{
@@ -95,6 +101,7 @@ let imprimir = (array)=>{
         `   
     });
     rellenar.innerHTML= informacionAlumno
+
 }
 
 function guardar(){
