@@ -19,9 +19,8 @@ if (localStorage.getItem("usuario") ==null) {
 window.onload = () => {
     mostrarSpinner();
     obtenerDatos()
-    obtenerNombreAlumno();
 }
-
+obtenerNombreAlumno();
 function mostrarSpinner() {
     document.getElementById("spinner-container").style.display = "block";
     document.getElementById("formulario-container").style.display = "none";
