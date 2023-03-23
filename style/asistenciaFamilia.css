@@ -13,9 +13,7 @@ body{
     text-align: center;
 }
 .col-lg-12{
-    flex: 0 0 auto;
-    width: 100%;
-    padding: 0px 100px !important;
+    text-align: center;
 }
 .datos{
     margin-top: 50px;

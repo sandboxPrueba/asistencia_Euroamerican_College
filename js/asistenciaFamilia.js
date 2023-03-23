@@ -1,6 +1,6 @@
 const url = 'https://espartano.azurewebsites.net/listarFamilia';
-const urlGuardar = 'https://espartano.azurewebsites.net/registrarReporteAsistencia';
-const urlReporte ='https://espartano.azurewebsites.net/ReporteAsistenciaFamilia'
+const urlGuardar = 'https://espartano.azurewebsites.net/actualizarAsistencia';
+const urlReporte ='https://espartano.azurewebsites.net/listarFamiliaAsitida'
 
 let rellenar = document.querySelector("#rellenar"); 
 let rellenar2 = document.querySelector("#rellenar2"); 
@@ -47,7 +47,7 @@ function obtenerNombreAlumno(){
 
             informacionAlumno+=
             ` 
-            <option value="${alumno.nombrefamilia}"></option>
+            <option value="${alumno.nombreFamilia}"></option>
             `  
         });
         rellenar2.innerHTML= informacionAlumno
@@ -89,13 +89,23 @@ let imprimir = (array)=>{
     var informacionAlumno ="";
 
     array.forEach((alumno) => {
-        
+
+        const fechaOriginal = new Date(alumno.fecha);
+        const year = fechaOriginal.getFullYear();
+        const month = (fechaOriginal.getMonth() + 1).toString().padStart(2, '0');
+        const day = fechaOriginal.getDate().toString().padStart(2, '0');
+        const hours = fechaOriginal.getHours().toString().padStart(2, '0');
+        const minutes = fechaOriginal.getMinutes().toString().padStart(2, '0');
+        const seconds = fechaOriginal.getSeconds().toString().padStart(2, '0');
+        const fechaFormateada = `${day}-${month}-${year}  ${hours}:${minutes}:${seconds}`; 
+    
         // console.log(index);
         informacionAlumno+=
         ` 
         <tr>
-            <th>${alumno.nombrefamilia}</th>
+            <th>${alumno.nombreFamilia}</th>
             <td>${alumno.asistio}</td>
+            <td>${fechaFormateada}</td>
         </tr>
         `   
     });
