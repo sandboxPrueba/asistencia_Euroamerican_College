@@ -76,12 +76,12 @@ async function obtenerDatos(){
             imprimir(json.data),
             cantidadResultados=(json.mensaje);
             total=(json.total);
-            console.log(total);
+            // console.log(total);
         });
     if(cantidadResultados =="Se encontraron 0 resultado(s)."){
         alert("No se encontraron resultados")
     }
-    rellenar3.innerHTML = ` <h1>Total ${total}</h1>`
+    rellenar3.innerHTML = ` <h1>Registros: ${total}</h1>`
 }
 
 let imprimir = (array)=>{
@@ -104,8 +104,8 @@ let imprimir = (array)=>{
         ` 
         <tr>
             <th>${alumno.nombreFamilia}</th>
-            <td>${alumno.asistio}</td>
             <td>${fechaFormateada}</td>
+            
         </tr>
         `   
     });
@@ -152,3 +152,7 @@ function guardar(){
 }
 
 
+function exportar(){
+    var table2excel = new Table2Excel();
+    table2excel.export(document.querySelectorAll("table"));
+}
