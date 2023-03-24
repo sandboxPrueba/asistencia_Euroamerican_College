@@ -19,7 +19,7 @@ body{
 #derecha{
     float: right;
 }
-#listaNombreAlumnos{
+#listaNombreAlumnos, option{
    width 800px !important;
 }
 .datos{
