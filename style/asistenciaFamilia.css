@@ -19,6 +19,9 @@ body{
 #derecha{
     float: right;
 }
+#listaNombreAlumnos{
+   width 800px !important;
+}
 .datos{
     margin-top: 50px;
     background-color: #d6d2c7dd;
@@ -35,7 +38,7 @@ body{
 }
 .btn:hover{
     background-color: #525a26 !important;
-    color: #f3f3f3 !important;
+    color: #f3f3f3 
 }
 
 @media (max-width: 575px){
